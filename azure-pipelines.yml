@@ -13,6 +13,18 @@ pool:
   
 
 steps:
+- script: echo Debug: Checking PATH
+    displayName: 'Debug: Start PATH Check'
+
+  - script: echo %PATH%
+    displayName: 'Debug: Show PATH variable'
+
+  - script: where mvn
+    displayName: 'Debug: Locate mvn'
+
+  - script: mvn -v
+    displayName: 'Debug: Maven Version Check'
+
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
